@@ -1,1 +1,181 @@
 # NASA-Public-APIs-Data-Project
+NASA Space Data Exploration Project
+
+This project demonstrates how to work with NASA’s public APIs to retrieve, process, visualize, and export real-world space data using Python.
+
+The project focuses on:
+
+Accessing APIs with authentication keys
+Fetching astronomy data from NASA servers
+Displaying NASA’s Astronomy Picture of the Day (APOD)
+Extracting asteroid data from the NeoWs API
+Cleaning and transforming JSON data into a structured pandas DataFrame
+Exporting processed data into CSV format for further analysis and sharing
+📌 Project Objectives
+
+The main objective of this project is to practice:
+
+API consumption using Python
+Working with JSON responses
+Data preprocessing and cleaning
+Data transformation using pandas
+Exporting datasets into CSV files
+
+This project simulates a real-world data engineering and data analysis workflow where data is collected from an external source, transformed into usable formats, and prepared for downstream analysis.
+
+🛰️ APIs Used
+1. Astronomy Picture of the Day (APOD)
+
+The APOD API provides daily astronomy-related images along with descriptions written by professional astronomers.
+
+Used for:
+
+Fetching NASA’s daily astronomy image
+Displaying image data inside a Jupyter Notebook
+
+Official API Documentation:
+
+NASA APOD API Documentation
+
+2. Asteroids NeoWs API
+
+NeoWs (Near Earth Object Web Service) provides asteroid-related information including:
+
+Asteroid IDs
+Estimated diameters
+Relative velocity
+Magnitude measurements
+
+Used for:
+
+Retrieving asteroid datasets
+Performing data cleaning and preprocessing
+Creating a structured pandas DataFrame
+
+Official API Documentation:
+
+NASA NeoWs API Documentation
+
+🛠️ Technologies and Libraries
+Tool / Library	Purpose
+Python	Main programming language
+requests	API communication
+pandas	Data manipulation
+matplotlib	Image visualization
+Pillow (PIL)	Image processing
+Jupyter Notebook	Development environment
+🔑 API Authentication
+
+NASA APIs require an API key for authentication and usage tracking.
+
+An API key was generated through the NASA API portal:
+
+NASA API Portal
+
+The API key is stored securely inside a Python variable before making requests.
+
+Example:
+
+API_KEY = "YOUR_API_KEY"
+📂 Project Workflow
+Step 1 — Import Required Libraries
+
+The necessary Python libraries were imported to handle:
+
+API requests
+Data processing
+Image visualization
+import requests
+import pandas as pd
+import matplotlib.pyplot as plt
+from PIL import Image
+from io import BytesIO
+Step 2 — Retrieve Astronomy Picture of the Day
+
+A GET request was sent to NASA’s APOD endpoint using the requests library.
+
+Tasks Performed
+Connected to NASA API
+Retrieved JSON response
+Extracted image URL
+Downloaded and displayed image inside notebook
+
+Example request:
+
+url = f"https://api.nasa.gov/planetary/apod?api_key={API_KEY}"
+response = requests.get(url)
+data = response.json()
+Step 3 — Display APOD Image
+
+The returned image URL was processed and visualized using matplotlib.
+
+Tasks Performed
+Downloaded image content
+Opened image using Pillow
+Rendered image inside notebook
+☄️ Asteroid Data Processing
+Step 4 — Access NeoWs API
+
+A request was sent to the NeoWs endpoint to retrieve asteroid information.
+
+Example:
+
+neo_url = f"https://api.nasa.gov/neo/rest/v1/neo/browse?api_key={API_KEY}"
+neo_response = requests.get(neo_url)
+neo_data = neo_response.json()
+Step 5 — Extract Relevant Asteroid Fields
+
+The API response contained nested JSON structures.
+
+The following fields were extracted:
+
+Field	Description
+Asteroid ID	Unique asteroid identifier
+Asteroid Name	Official asteroid name
+Minimal Estimated Diameter (km)	Minimum estimated size
+Absolute Magnitude	Brightness measurement
+Relative Velocity (km/h)	Speed relative to Earth
+Step 6 — Data Cleaning and Transformation
+
+The raw JSON data was transformed into a structured list before converting into a pandas DataFrame.
+
+Preprocessing Tasks
+Extracted nested values
+Handled missing values
+Removed incomplete rows
+Converted velocity column into numeric datatype
+
+Example:
+
+df.dropna(inplace=True)
+
+df['Relative Velocity (km/h)'] = pd.to_numeric(
+    df['Relative Velocity (km/h)']
+)
+📊 Final DataFrame Structure
+Asteroid ID	Asteroid Name	Minimal Estimated Diameter (km)	Absolute Magnitude	Relative Velocity (km/h)
+
+The final dataset was clean, structured, and ready for analysis.
+
+💾 Exporting Data
+
+The cleaned dataset was exported into CSV format for sharing and future analysis.
+
+Example:
+
+df.to_csv('asteroids.csv', index=False)
+
+Output:
+
+asteroids.csv
+📈 Key Skills Demonstrated
+
+This project demonstrates practical skills in:
+
+API integration
+JSON parsing
+Data preprocessing
+Data transformation
+Data visualization
+Data export workflows
+Real-world dataset handling
