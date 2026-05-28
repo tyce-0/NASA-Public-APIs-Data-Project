@@ -11,10 +11,10 @@ Displaying NASA’s Astronomy Picture of the Day (APOD)
 Extracting asteroid data from the NeoWs API
 Cleaning and transforming JSON data into a structured pandas DataFrame
 Exporting processed data into CSV format for further analysis and sharing
+
 📌 Project Objectives
 
 The main objective of this project is to practice:
-
 API consumption using Python
 Working with JSON responses
 Data preprocessing and cleaning
@@ -22,6 +22,7 @@ Data transformation using pandas
 Exporting datasets into CSV files
 
 This project simulates a real-world data engineering and data analysis workflow where data is collected from an external source, transformed into usable formats, and prepared for downstream analysis.
+
 
 🛰️ APIs Used
 1. Astronomy Picture of the Day (APOD)
@@ -56,18 +57,17 @@ Official API Documentation:
 
 NASA NeoWs API Documentation
 
-🛠️ Technologies and Libraries
-Tool / Library	Purpose
-Python	Main programming language
-requests	API communication
-pandas	Data manipulation
-matplotlib	Image visualization
-Pillow (PIL)	Image processing
-Jupyter Notebook	Development environment
+🛠️ Technologies and Libraries used 
+
+Python - The Main programming language
+requests - For API communication
+pandas - For Data manipulation
+matplotlib - Image visualization
+Pillow (PIL) - Image processing
+
+
 🔑 API Authentication
-
 NASA APIs require an API key for authentication and usage tracking.
-
 An API key was generated through the NASA API portal:
 
 NASA API Portal
@@ -140,38 +140,24 @@ Step 6 — Data Cleaning and Transformation
 The raw JSON data was transformed into a structured list before converting into a pandas DataFrame.
 
 Preprocessing Tasks
+
 Extracted nested values
 Handled missing values
 Removed incomplete rows
 Converted velocity column into numeric datatype
 
-Example:
-
-df.dropna(inplace=True)
-
-df['Relative Velocity (km/h)'] = pd.to_numeric(
-    df['Relative Velocity (km/h)']
-)
 📊 Final DataFrame Structure
 Asteroid ID	Asteroid Name	Minimal Estimated Diameter (km)	Absolute Magnitude	Relative Velocity (km/h)
 
 The final dataset was clean, structured, and ready for analysis.
 
-💾 Exporting Data
+ Exporting Data
 
 The cleaned dataset was exported into CSV format for sharing and future analysis.
 
-Example:
-
-df.to_csv('asteroids.csv', index=False)
-
-Output:
-
-asteroids.csv
 📈 Key Skills Demonstrated
 
 This project demonstrates practical skills in:
-
 API integration
 JSON parsing
 Data preprocessing
