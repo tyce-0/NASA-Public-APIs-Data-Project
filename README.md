@@ -38,9 +38,7 @@ Official API Documentation:
 
 NASA APOD API Documentation
 
-2. Asteroids NeoWs API
-
-NeoWs (Near Earth Object Web Service) provides asteroid-related information including:
+2. Asteroids NeoWs API- NeoWs (Near Earth Object Web Service) provides asteroid-related information including:
 
 Asteroid IDs
 Estimated diameters
@@ -74,11 +72,7 @@ NASA API Portal
 
 The API key is stored securely inside a Python variable before making requests.
 
-Example:
-
-API_KEY = "YOUR_API_KEY"
-📂 Project Workflow
-Step 1 — Import Required Libraries
+# Step 1 — Import Required Libraries
 
 The necessary Python libraries were imported to handle:
 
@@ -90,7 +84,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
-Step 2 — Retrieve Astronomy Picture of the Day
+
+# Step 2 — Retrieve Astronomy Picture of the Day
 
 A GET request was sent to NASA’s APOD endpoint using the requests library.
 
@@ -100,12 +95,7 @@ Retrieved JSON response
 Extracted image URL
 Downloaded and displayed image inside notebook
 
-Example request:
 
-url = f"https://api.nasa.gov/planetary/apod?api_key={API_KEY}"
-response = requests.get(url)
-data = response.json()
-Step 3 — Display APOD Image
 
 The returned image URL was processed and visualized using matplotlib.
 
@@ -114,16 +104,13 @@ Downloaded image content
 Opened image using Pillow
 Rendered image inside notebook
 ☄️ Asteroid Data Processing
-Step 4 — Access NeoWs API
+
+# Step 4 — Access NeoWs API
 
 A request was sent to the NeoWs endpoint to retrieve asteroid information.
 
-Example:
 
-neo_url = f"https://api.nasa.gov/neo/rest/v1/neo/browse?api_key={API_KEY}"
-neo_response = requests.get(neo_url)
-neo_data = neo_response.json()
-Step 5 — Extract Relevant Asteroid Fields
+# Step 5 — Extract Relevant Asteroid Fields
 
 The API response contained nested JSON structures.
 
@@ -135,29 +122,26 @@ Asteroid Name	Official asteroid name
 Minimal Estimated Diameter (km)	Minimum estimated size
 Absolute Magnitude	Brightness measurement
 Relative Velocity (km/h)	Speed relative to Earth
-Step 6 — Data Cleaning and Transformation
+
+# Step 6 — Data Cleaning and Transformation
 
 The raw JSON data was transformed into a structured list before converting into a pandas DataFrame.
 
-Preprocessing Tasks
-
-Extracted nested values
-Handled missing values
-Removed incomplete rows
-Converted velocity column into numeric datatype
+ I  extracted Extracted nested values,Handled missing values and removed incomplete rows then Converted velocity column into numeric datatype during the preprocessing stage.
 
 📊 Final DataFrame Structure
 Asteroid ID	Asteroid Name	Minimal Estimated Diameter (km)	Absolute Magnitude	Relative Velocity (km/h)
 
 The final dataset was clean, structured, and ready for analysis.
 
- Exporting Data
+ # Exporting the clean Data
 
 The cleaned dataset was exported into CSV format for sharing and future analysis.
 
 📈 Key Skills Demonstrated
 
 This project demonstrates practical skills in:
+
 API integration
 JSON parsing
 Data preprocessing
